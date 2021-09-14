@@ -1,0 +1,19 @@
+*** Settings ***
+Suite Setup			Login Platform
+Library				Selenium2Library
+Test Teardown		Close Browser
+
+*** Variables ***
+${Browser}		gc
+${Staging}    	https://google.com/
+
+*** Keywords ***
+Login Platform
+	Open Browser		${Staging}
+	Input Text			id=Email_Id 	andi@yopmail.com
+	Input Password		id=Password	    Admin123!
+	Click Button		id=login
+
+*** Test Case ***
+Login Platform
+	Login Platform
